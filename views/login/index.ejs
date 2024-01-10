@@ -1,0 +1,89 @@
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+                <img src="../images/draw2.webp" class="img-fluid" alt="Sample image">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                <form id="loginForm" action="/login" method="POST">
+
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <input type="email" id="form3Example3" class="form-control form-control-lg"
+                            placeholder="Enter your email..." name="email" autocomplete="current-email" />
+                        <label class="form-label" for="form3Example3">Email</label>
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-3">
+                        <input type="password" id="form3Example4" class="form-control form-control-lg"
+                            placeholder="Enter password" name="password" autocomplete="current-password" />
+                        <label class="form-label" for="form3Example4">Password</label>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center">
+                        <!-- Checkbox -->
+                        <div class="form-check mb-0">
+                            <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+                            <label class="form-check-label" for="form2Example3">
+                                Remember me
+                            </label>
+                        </div>
+                        <a href="#!" class="text-body">Forgot password?</a>
+                    </div>
+
+                    <div class="text-center text-lg-start mt-4 pt-2">
+                        <button type="submit" class="btn btn-primary btn-lg"
+                            style="padding-left: 2.5rem; padding-right: 2.5rem;">Enter</button>
+                    </div>
+                </form>
+                <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="/signup"
+                        class="link-danger">Register</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- my-views/login/index.ejs -->
+
+    <!-- Your HTML content -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const loginForm = document.getElementById('loginForm');
+
+            if (loginForm) {
+                loginForm.addEventListener('submit', function (event) {
+                    event.preventDefault();
+
+                    // Get form data and serialize it
+                    const formData = new FormData(loginForm);
+                    const serializedFormData = new URLSearchParams(formData).toString();
+
+                    // Make AJAX request with proper headers
+                    fetch('/login', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json', // Set the content type to JSON
+                        },
+                        body: JSON.stringify(Object.fromEntries(formData)), // Convert formData to JSON
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            // Handle the response data
+                            console.log(data);
+
+                            // Example: Redirect to dashboard on successful login
+                            if (data.token) {
+                                window.location.href = '/dashboard';
+                            }
+                        })
+                        .catch(error => {
+                            // Handle errors
+                            console.error('Error:', error);
+                        });
+                });
+            }
+        });
+    </script>
+
+    <!-- Your HTML content -->

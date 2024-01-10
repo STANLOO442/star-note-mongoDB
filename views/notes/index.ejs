@@ -1,0 +1,48 @@
+<style>
+    .container {
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
+
+
+<div class="container mt-5">
+    <h2 class="mb-4">Welcome to staRnotes!</h2>
+    <!-- ... (existing code) -->
+
+    <form action="/notes/search" class="nav col-5 col-md-5 flex-fill mb-2 justify-content-center mb-md-0" role="serach"
+        method="POST">
+        <input type="search" name="searchTerm" class="form-control border-primary" placeholder="search..."
+            aerial-label="search">
+    </form>
+</div>
+
+
+
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    <% locals.notes.forEach((note)=> { %>
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= note.title %>
+                    </h5>
+                    <p class="card-text">
+                        <%= note.description %>
+                    </p>
+                    <p class="card-text"><strong>Status:</strong>
+                        <%= note.status %>
+                    </p>
+                    <p class="card-text"><strong>Due Date:</strong>
+                        <%= note.dueDate %>
+                    </p>
+                    <p class="card-text"><strong>Content:</strong>
+                        <%= note.content %>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <% }); %>
+</div>
+</div>

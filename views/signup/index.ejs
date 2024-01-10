@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            -moz-osx-font-smoothing: grayscale;
+            height: 100%;
+            background-color: #152733;
+            overflow: hidden;
+        }
+
+        .top-left {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 10px;
+            color: #fff;
+        }
+
+        .form-holder {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .form-content {
+            position: relative;
+            text-align: center;
+            padding: 60px;
+            background-color: #152733;
+        }
+
+        .form-items {
+            border: 3px solid #fff;
+            padding: 40px;
+            width: 100%;
+            min-width: 540px;
+            border-radius: 10px;
+            text-align: left;
+            transition: all 0.4s ease;
+        }
+
+        .form-content h3 {
+            color: #fff;
+            text-align: left;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .form-content p {
+            color: #fff;
+            text-align: left;
+            font-size: 17px;
+            font-weight: 300;
+            line-height: 20px;
+            margin-bottom: 30px;
+        }
+
+        .form-content label,
+        .was-validated .form-check-input:invalid~.form-check-label,
+        .was-validated .form-check-input:valid~.form-check-label {
+            color: #fff;
+        }
+
+        .form-content input[type=text],
+        .form-content input[type=password],
+        .form-content input[type=email],
+        .form-content select {
+            width: 100%;
+            padding: 9px 20px;
+            border: 0;
+            outline: 0;
+            border-radius: 6px;
+            background-color: #fff;
+            font-size: 15px;
+            font-weight: 300;
+            color: #8D8D8D;
+            transition: all 0.3s ease;
+            margin-top: 16px;
+        }
+
+        .btn-primary {
+            background-color: #6C757D;
+            outline: none;
+            border: 0px;
+            box-shadow: none;
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus,
+        .btn-primary:active {
+            background-color: #495056;
+            outline: none !important;
+            border: none !important;
+            box-shadow: none;
+        }
+
+        .form-content textarea {
+            width: 100%;
+            padding: 8px 20px;
+            border-radius: 6px;
+            text-align: left;
+            background-color: #fff;
+            border: 0;
+            font-size: 15px;
+            font-weight: 300;
+            color: #8D8D8D;
+            outline: none;
+            resize: none;
+            height: 120px;
+            transition: none;
+            margin-bottom: 14px;
+        }
+
+        .form-content textarea:hover,
+        .form-content textarea:focus {
+            border: 0;
+            background-color: #ebeff8;
+            color: #8D8D8D;
+        }
+
+        .mv-up {
+            margin-top: -9px !important;
+            margin-bottom: 8px !important;
+        }
+
+        .invalid-feedback {
+            color: #ff606e;
+        }
+
+        .valid-feedback {
+            color: #2acc80;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top Left Logo -->
+    <a href="/"
+        class="top-left d-flex align-items-center col-md-3 mb-2 mb-md-0 text-primary text-decoration-none fw-bold fs-2">
+        sta<span style="color:red">R</span><span style="color:black">notes</span>
+        <div class="col-md-9 col-lg-6 col-xl-5">
+            <img src="../images/draw2.webp" class="img-fluid" alt="Sample image">
+        </div>
+    </a>
+
+    <!-- Top Right Button -->
+    <div class="top-right col-md-9 text-end ms-auto"> <!-- Added ms-auto to move it to the right -->
+        <div></div>
+        <a href="/" class="btn btn-secondary">Back to Home</a>
+    </div>
+
+
+    <!-- Centered Form -->
+    <div class="form-holder">
+        <div class="form-content">
+            <div class="form-items">
+                <h3>Signup Here</h3>
+                <p>Fill in the data below.</p>
+                <form action="/signup" method="POST" id="signupForm">
+                
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="first_name" placeholder="First Name"
+                            value="<%= locals.first_name %>" autocomplete="current-first-name" required>
+                    </div>
+                
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="last_name" placeholder="Last Name" value="<%= locals.last_name %>"
+                            autocomplete="current-last-name" required>
+                    </div>
+                
+                    <div class="form-group">
+                        <input class="form-control" type="email" name="email" placeholder="E-mail" value="<%= locals.email %>"
+                            autocomplete="current-email" required>
+                    </div>
+                
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="address" placeholder="Home Address" value="<%= locals.address %>"
+                            autocomplete="current-address" required>
+                    </div>
+                
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="phone" placeholder="Phone Number" value="<%= locals.phone %>"
+                            autocomplete="current-number" required>
+                    </div>
+                
+                    <div class="form-group">
+                        <input class="form-control" type="password" name="password" placeholder="Password"
+                            autocomplete="current-password" required>
+                    </div>
+                
+                    <div class="form-group mt-3">
+                        <label class="mb-3 mr-1" for="gender">Gender: </label>
+                
+                        <input type="radio" class="btn-check" name="gender" id="male" value="male" <% if (locals.gender==='male' ) { %>
+                        checked <% } %> autocomplete="current-gender" required>
+                            <label class="btn btn-sm btn-outline-secondary" for="male">Male</label>
+                
+                            <input type="radio" class="btn-check" name="gender" id="female" value="female" <% if
+                                (locals.gender==='female' ) { %> checked <% } %> autocomplete="current-gender" required>
+                                <label class="btn btn-sm btn-outline-secondary" for="female">Female</label>
+                    </div>
+                
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                        <label class="form-check-label">I confirm that all data are correct</label>
+                        <div class="invalid-feedback">Please confirm that the entered data are all correct!</div>
+                    </div>
+                
+                    <div class="form-button mt-3">
+                        <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Bootstrap JS and jQuery (you may need to include them based on your setup) -->
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script> -->
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const signupForm = document.getElementById('signupForm');
+
+            if (signupForm) {
+                signupForm.addEventListener('submit', function (event) {
+                    event.preventDefault();
+
+                    // Get form data and serialize it
+                    const formData = new FormData(signupForm);
+                    const serializedFormData = new URLSearchParams(formData).toString();
+
+                    // Make AJAX request with proper headers
+                    fetch('/signup', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json', // Set the content type to JSON
+                        },
+                        body: JSON.stringify(Object.fromEntries(formData)), // Convert formData to JSON
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            // Handle the response data (e.g., redirect to login page)
+                            console.log(data);
+
+                            // Example: Redirect to login page on successful signup
+                            if (data.userId) {
+                                window.location.href = '/login';
+                            }
+                        })
+                        .catch(error => {
+                            // Handle errors (e.g., display error message to the user)
+                            console.error('Error:', error);
+                        });
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+

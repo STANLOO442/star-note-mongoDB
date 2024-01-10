@@ -1,0 +1,46 @@
+{
+  "name": "week-9-task-STANLOO442",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/decadevs/week-9-task-STANLOO442.git",
+  "author": "stanley nwaiwu <nwaistanley@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "seed": "ts-node ./src/seed.ts",
+    "type": "module"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.21",
+    "@types/express-session": "^1.17.10",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^20.10.7",
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.3",
+    "joi": "^17.11.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.3.0",
+    "mongoose": "^8.0.3",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.0.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/cookie-parser": "^1.4.6",
+    "@types/cors": "^2.8.17",
+    "@types/express-ejs-layouts": "^2.5.4",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/morgan": "^1.9.9"
+  }
+}
